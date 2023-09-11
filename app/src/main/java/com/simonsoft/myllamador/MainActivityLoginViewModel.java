@@ -22,18 +22,30 @@ public class MainActivityLoginViewModel extends AndroidViewModel {
         }
         return mres;
     }
+
+
     public MainActivityLoginViewModel(@NonNull Application application) {
         super(application);
         context=application.getApplicationContext();
     }
+
+
     public void login(String password, String email){
 
-        if (password.equals("123")&& email.equals("correo@mail.com")){
-            Intent intent = new Intent(context,MainActivityMenu.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intent);
+        if (password.equals("") || email.equals("")){
+            Toast.makeText(this.getApplication(),"Rellene los Campos Vacios",Toast.LENGTH_LONG).show();
         }else{
-            mres.setValue("Contraseña invalidad");
+            if (password.equals("123")&& email.equals("correo@mail.com")){
+                Intent intent = new Intent(context,MainActivityMenu.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }else{
+                mres.setValue("Contraseña o correo Inválidos");
+            }
+         }
         }
-    }
+
+
+
+
 }

@@ -24,7 +24,8 @@ private MainActivityLoginViewModel mv;
         binding.btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mv.login(binding.etPassword.getText().toString(),binding.etEmail.getText().toString());
+
+               mv.login(binding.etPassword.getText().toString(),binding.etEmail.getText().toString());
 
             }
         });
